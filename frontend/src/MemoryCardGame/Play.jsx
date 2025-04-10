@@ -51,7 +51,7 @@ const modalPlayStyles = {
     borderRadius: "20px",
     padding: "40px",
     maxWidth: "600px",
-    height: "200px",
+    height: "300px",
     width: "90%",
     color: "#fff",
     textAlign: "center",
@@ -69,12 +69,16 @@ const Play = () => {
   const [PlaymodalIsOpen, setModalPlayIsOpen] = useState(false);
   const [difficulty, setDifficulty] = useState(null);
   const [isCalmMode, setIsCalmMode] = useState(false);
-  
+
   const [bgVolume, setBgVolume] = useState(
-    localStorage.getItem("bgVolume") !== null ? parseInt(localStorage.getItem("bgVolume"), 10) : 50
+    localStorage.getItem("bgVolume") !== null
+      ? parseInt(localStorage.getItem("bgVolume"), 10)
+      : 50
   );
   const [sfxVolume, setSfxVolume] = useState(
-    localStorage.getItem("sfxVolume") !== null ? parseInt(localStorage.getItem("sfxVolume"), 10) : 50
+    localStorage.getItem("sfxVolume") !== null
+      ? parseInt(localStorage.getItem("sfxVolume"), 10)
+      : 50
   );
 
   const [mutedBg, setMutedBg] = useState(false);
@@ -138,16 +142,16 @@ const Play = () => {
 
   const playHoverSound = () => {
     hoverAudioRef.current.currentTime = 0;
-    hoverAudioRef.current.play().catch((error) =>
-      console.error("Hover sound playback failed:", error)
-    );
+    hoverAudioRef.current
+      .play()
+      .catch((error) => console.error("Hover sound playback failed:", error));
   };
 
   const playClickSound = () => {
     clickAudioRef.current.currentTime = 0;
-    clickAudioRef.current.play().catch((error) =>
-      console.error("Click sound playback failed:", error)
-    );
+    clickAudioRef.current
+      .play()
+      .catch((error) => console.error("Click sound playback failed:", error));
   };
 
   const SettingopenModal = () => {
@@ -216,7 +220,6 @@ const Play = () => {
       <h1 className={`game-title ${isCalmMode ? "calm-title" : ""}`}>
         WonderCards
       </h1>
-
       <div className="button-container">
         <button
           className={`game-button ${isCalmMode ? "calm-button" : ""}`}
